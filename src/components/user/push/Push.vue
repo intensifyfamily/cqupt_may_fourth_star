@@ -249,13 +249,13 @@ export default {
       //   }
       // })
       var cos = new COS({
-        SecretId: 'AKIDMr9U5TgxMZZJo3i0gKp6HDtKRRDuJgYI',
-        SecretKey: 'knkRu8E8xYzA5kALJ2W0HJ5oIWTVP4Vg'
+        SecretId: '',
+        SecretKey: ''
       })
       var _this = this
       cos.putObject({
-        Bucket: 'cquptcywx-1300292366', /* 必须 */
-        Region: 'ap-chongqing', /* 存储桶所在地域，必须字段 */
+        Bucket: '', /* 必须 */
+        Region: '', /* 存储桶所在地域，必须字段 */
         Key: `54star/${timestamp}_${file.name}`, /* 必须 */
         StorageClass: 'STANDARD',
         Body: file.raw, // 上传文件对象
