@@ -1,32 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" ref="homePage">
+    <router-view></router-view>
+    <span class="jszc" ref="sspan">@由重邮e站微+平台提供技术支持</span>
   </div>
 </template>
 
+<script>
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      clientHeight: '',
+      bclientHeight: ''
+    }
+  },
+  mounted() {
+    this.clientHeight = `${document.documentElement.clientHeight}`
+    window.onresize = function temp() {
+      this.clientHeight = `${document.documentElement.clientHeight}`
+    }
+  },
+  watch: {
+    clientHeight: function () {
+      if (this._isMobile()) {
+        this.changeFixed(this.clientHeight)
+      }
+    }
+  },
+  methods: {
+    changeFixed (clientHeight) {
+      this.$refs.homePage.style.height = clientHeight + 'px'
+      this.$refs.sspan.style.top = clientHeight + 'px'
+    },
+    _isMobile() {
+      return navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+    }
+  }
+}
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.jszc {
+  position: fixed;
+  width: 100%;
   text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  letter-spacing: 0.4em;
+  color: #808080;
+  transform: translate(0, -100%);
 }
 </style>
