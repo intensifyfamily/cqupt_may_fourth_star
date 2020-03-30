@@ -40,7 +40,7 @@ module.exports = {
   // devServer: {
   //   proxy: {
   //     '/api': {
-  //       target: 'http://www.estationaeolus.xyz:8888', // 你要访问的地址
+  //       target: '', // 你要访问的地址
   //       ws: true,
   //       changeOrigin: true,
   //       pathRewrite: {

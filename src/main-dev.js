@@ -11,7 +11,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 import axios from 'axios'
-axios.defaults.baseURL = 'http://www.estationaeolus.xyz:8888/application'
+axios.defaults.baseURL = ''
 // 在request 拦截器中，展示进度条 NProgress.start()
 axios.interceptors.request.use(config => {
   NProgress.start()
